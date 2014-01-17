@@ -2,7 +2,7 @@ Topics = new Meteor.Collection('topics')
 
 Meteor.publish 'topics',() ->
     comments = null;
-    topics = Topics.find({})
+    topics = Topics.find({},{sort:{created_on:-1}})
 Meteor.methods {
     create_topic: (topic) ->
         if this.userId
