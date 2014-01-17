@@ -1,0 +1,27 @@
+<div class="user-audit">
+	<div class="form-wrap">
+		<div class="row">
+			<div class="form-header">
+				<i class="fa fa-user"></i>
+			</div>
+			<div class="form-main">
+				<form name="signupform" novalidate>
+					<div class="form-group">
+						<input type="text" class="form-control" ng-model="user.username" placeholder="username" required/>
+						<input type="email" class="form-control" ng-model="user.email" placeholder="email" required/>
+						<input type="password" class="form-control" ng-model="user.password" placeholder="password" required/>
+					</div>
+					<button class="btn btn-block btn-primary btn-signup" ng-click="createUser(user)" ng-disabled="signupform.$invalid">Sign Up</button>
+				</form>
+			</div>
+			<div class="form-footer">
+				<div class="row">
+					<div class="col-xs-5">
+						<i class="fa fa-check"></i>
+						<a href="" ng-click="$parent.currentView = 'login'">Sign In</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

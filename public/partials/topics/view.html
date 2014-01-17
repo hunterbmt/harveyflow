@@ -1,0 +1,47 @@
+<div class="topics-container">
+	<div class="row topic" ng-repeat="topic in topics">
+		<ul class="topic-action col-xs-2">
+			<li>
+				<a href="" class="btn btn-default get-link-btn">
+					<i class="fa fa-link fa-3"></i>
+					<span>Link</span>
+				</a>
+			</li>
+			<li>
+				<a ng-href="#/topic/{{topic._id}}" class="btn btn-default comments-btn">
+					<i class="fa fa-comments fa-3"></i>
+					<span>Discuss</span></a>
+			</li>
+		</ul>
+		<div class="topic-container col-xs-10">
+			<span class="topic-rank">1</span>
+			<div class="topic-upvote voted">
+          		<a class="upvote-link" href="#">
+          			<i class="fa fa-angle-up"></i>
+          		</a>
+      		</div>
+      		<div class="topic-info">
+		        <h3 class="post-heading">
+		          <a ng-href="{{topic.shared_url}}" class="post-title" target="_blank">{{topic.title}}</a>
+		          <span class="post-domain">{{topic.shared_url_domain}}</span>
+		          <span class="pull-right">
+		          	 on
+		          	 <a ng-href="#/category/{{topic.category}}" class="post-category category-announcements">{{topic.category ||'Default'}}</a>
+		          </span>
+		              
+		        </h3>
+		        <p class="topic-meta">
+		        	<span class="topic-points">
+		        		{{topic.point||0}} <span class="unit">points </span>
+		        	</span>by  
+		        	<a class="topic-author" ng-href="#users/{{topic.creator.username}}">{{topic.creator.username}}</a>
+		        	<span class="topic-time" am-time-ago="topic.created_on"></span>
+		        	<span class="topic-comments">, 
+		        		<a class="go-to-comments" ng-href="#/topic/{{topic._id}}">{{topic.comments_count}} comments</a>
+		        	</span>
+		        </p>
+		      </div>
+		</div>
+	</div>
+
+</div>

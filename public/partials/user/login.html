@@ -1,0 +1,52 @@
+<div class="user-audit">
+	<div class="form-wrap">
+		<div class="row">
+			<div class="login-form col-md-4 col-md-offset-1">
+				<div class="form-main">
+					<form name="signinform" novalidate>
+						<div class="form-group">
+							<input type="text" class="form-control" ng-model="user.username" placeholder="username" required/>
+							<input type="password" class="form-control" ng-model="user.password" placeholder="password" required/>
+						</div>
+						<a href="" class="btn btn-block btn-signin" ng-click="loginUser(user)" ng-disabled="signinform.$invalid">Sign In</a>
+					</form>
+				</div>
+				<div class="form-footer">
+					<div class="row">
+						<div class="col-xs-7">
+							<i class="fa fa-unlock-alt"></i>
+							<a href="#password_recovery">Forgot password?</a>
+						</div>
+						<div class="col-xs-5">
+							<i class="fa fa-check"></i>
+							<a href="" ng-click="$parent.currentView = 'signup'">Sign Up</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="horizontal-divider"></div>
+			</div>
+			<div class="signup-form col-md-4">
+				<div class="form-main">
+					<form name="signupform" novalidate>
+						<div class="form-group">
+							<input type="text" class="form-control" ng-model="user.username" placeholder="username" required/>
+							<input type="email" class="form-control" ng-model="user.email" placeholder="email" required/>
+							<input type="password" class="form-control" ng-model="user.password" placeholder="password" required/>
+						</div>
+						<button class="btn btn-block btn-primary btn-signup" ng-click="createUser(user)" ng-disabled="signupform.$invalid">Sign Up</button>
+					</form>
+				</div>
+				<div class="form-footer">
+					<div class="row">
+						<div class="col-xs-5">
+							<i class="fa fa-check"></i>
+							<a href="" ng-click="$parent.currentView = 'login'">Sign In</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

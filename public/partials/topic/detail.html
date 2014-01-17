@@ -1,0 +1,126 @@
+<div class="topics-container">
+	<div class="row topic">
+		<ul class="topic-action col-xs-2">
+			<li>
+				<a href="" class="btn btn-default get-link-btn">
+					<i class="fa fa-link fa-3"></i>
+					<span>Link</span>
+				</a>
+			</li>
+			<li>
+				<a ng-href="#/topic/{{topic._id}}" class="btn btn-default comments-btn">
+					<i class="fa fa-comments fa-3"></i>
+					<span>Discuss</span></a>
+			</li>
+		</ul>
+		<div class="topic-container col-xs-10">
+			<div class="topic-upvote voted">
+          		<a class="upvote-link" href="#">
+          			<i class="fa fa-angle-up"></i>
+          		</a>
+      		</div>
+      		<div class="topic-info">
+		        <h3 class="post-heading">
+		          <a ng-href="{{topic.shared_url}}" class="post-title" target="_blank">{{topic.title}}</a>
+		          <span class="post-domain">{{topic.shared_url_domain}}</span>
+		          <span class="pull-right">
+		          	 on
+		          	 <a ng-href="#/category/{{topic.category}}" class="post-category category-announcements">{{topic.category}}</a>
+		          </span>
+		              
+		        </h3>
+		        <p class="topic-meta">
+		        	<span class="topic-points">
+		        		{{topic.point || 0}} <span class="unit">points </span>
+		        	</span>by  
+		        	<a class="topic-author" ng-href="#users/{{topic.creator.username}}">{{topic.creator.username}}</a>
+		        	<span class="topic-time" am-time-ago="topic.created_on"></span>
+		        	<span class="topic-comments">, 
+		        		<a class="go-to-comments" ng-href="#/topic/{{topic._id}}">{{topic.comments_count}} comments</a>
+		        	</span>
+		        </p>
+		      </div>
+		</div>
+	</div>
+	<div class="row topic-body" ng-if="topic.body">
+		<p>{{topic.body}}</p>
+	</div>
+	<div class="row new-comment">
+		<textarea class="form-control" rows="5" ng-model="new_comment.body"></textarea>
+		<button class="btn btn-warning pull-right add-comment-btn " ng-click="addComment(new_comment)">Add comment</button>
+	</div>
+	<div class="row comments-container" ng-if="topic.comments">
+		<ul>
+			<li class="comment" ng-repeat="comment in topic.comments">
+				<div class="comment-body">
+					<div class="comment-content">
+						<div class="user-avatar">
+							<img ng-src="{{comment.creator.profile.gravata_url}}"/>
+						</div>
+						<div class="comment-main clearfix">
+				          <div class="comment-meta">
+				            <a class="comment-username" ng-href="#/users/{{comment.creator.username}}">{{comment.creator.username}}</a>
+				            <span class="comment-time" am-time-ago="comment.created_on"></span>
+				            <span class="points">{{comment.points ||0}} 
+				            	<span class="unit">points </span>
+				            </span>
+				       	  </div>
+				          <div class="comment-text markdown"><p>{{comment.body}}</p></div>
+				          
+				           <input ng-show="replying" class="form-control" style="margin-bottom:10px" type="text" ng-model="newReply"/>
+				           <button class="btn btn-warning pull-right add-comment-btn " ng-click="replyComment(this)">Reply</button>
+				          
+				        </div>
+				        <div class="comment-actions upvoted not-downvoted">
+				          <a class="upvote" href="#">
+				            <i class="fa fa-angle-up"></i>
+				          </a>
+				          <a class="downvote" href="#">
+				            <i class="fa fa-angle-down"></i>
+				          </a>
+				        </div>
+					</div>
+					<ul class="comment-children" ng-if="comment.replies">
+						<li ng-repeat="reply in comment.replies" class="comment" ng-include="'comment-children.html'">
+						</li>
+					</ul>
+				</div>
+
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/ng-template"  id="comment-children.html">
+	<div class="comment-body">
+		<div class="comment-content">
+			<div class="user-avatar">
+				<img ng-src="{{reply.creator.profile.gravata_url}}"/>
+			</div>
+			<div class="comment-main clearfix">
+				<div class="comment-meta">
+				    <a class="comment-username" ng-href="#/users/{{reply.creator.username}}">{{reply.creator.username}}</a>
+				    <span class="comment-time" am-time-ago="reply.created_on"></span>
+				    <span class="points">{{reply.points||0}} 
+				        <span class="unit">points </span>
+				    </span>
+				</div>
+				<div class="comment-text markdown"><p>{{reply.body}}</p></div>
+				          
+				    <input ng-show="replying" class="form-control" style="margin-bottom:10px" type="text" ng-model="newReply"/>
+				    <button class="btn btn-warning pull-right add-comment-btn " ng-click="replyComment(this,reply.path)">Reply</button>
+				          
+				</div>
+				<div class="comment-actions upvoted not-downvoted">
+				    <a class="upvote" href="#">
+				        <i class="fa fa-angle-up"></i>
+				    </a>
+				    <a class="downvote" href="#">
+				        <i class="fa fa-angle-down"></i>
+				    </a>
+				</div>
+			</div>
+			<ul class="comment-children" ng-if="reply.replies">
+				<li ng-repeat="reply in reply.replies" ng-include="'comment-children.html'" class="comment"/>
+			</ul>
+	</div>
+</script>

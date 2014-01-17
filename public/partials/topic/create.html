@@ -1,0 +1,48 @@
+<div class="row edit-topic">
+	<form class="form-horizontal">
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">URL</label>
+        <div class="col-sm-8">
+        	<input id="url" type="text" class="form-control" ng-model="topic.shared_url">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Title</label>
+        <div class="col-sm-8">
+        	<input id="title" type="text" value="" class="form-control" ng-model="topic.title"/>
+        	<a href="#" class="get-title-link inline-link">Suggest title</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Body</label>
+        <div class="controls col-sm-8" id="editor">
+        	<textarea class="form-control" rows="5" ng-model="topic.body"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Category</label>
+        <div class="controls col-sm-8">
+          
+          <label class="radio inline">
+            <input id="category_86c1cb25-c767-4442-8eb8-dabdea83eaf3" type="radio" value="86c1cb25-c767-4442-8eb8-dabdea83eaf3" name="category"> Announcements
+          </label>
+          
+          <label class="radio inline">
+            <input id="category_88242177-d02e-436b-888d-837f697e7b18" type="radio" value="88242177-d02e-436b-888d-837f697e7b18" name="category"> Design
+          </label>
+          
+          <label class="radio inline">
+            <input id="category_a202a4b4-064f-4a87-81df-147f91f7c038" type="radio" value="a202a4b4-064f-4a87-81df-147f91f7c038" name="category"> Startups
+          </label>
+          
+        </div>
+      </div>
+      <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button class="btn btn-primary" ng-click="addTopic(topic)">Post</button>
+	    </div>
+	  </div>
+   
+    </form>
+</div>

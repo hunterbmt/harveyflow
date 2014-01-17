@@ -1,0 +1,57 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "angularjs": {
+        "git": "https://github.com/hunterbmt/Meteor-angularjs.git",
+        "branch": "master"
+      },
+      "bootstrap3-less": {},
+      "font-awesome-4-less": {},
+      "pnotify-bootstrap-3": {},
+      "gravatar": {}
+    },
+    "packages": {
+      "angularjs": {
+        "git": "https://github.com/hunterbmt/Meteor-angularjs.git",
+        "branch": "master",
+        "commit": "ec8354d9e66652e72a90f611071c626cdf0c3bdd"
+      },
+      "bootstrap3-less": {
+        "git": "https://github.com/eprochasson/bootstrap3-less",
+        "tag": "v0.1.8",
+        "commit": "48b6db4435d9f01a1fcfe694a180b38e8e38835b"
+      },
+      "font-awesome-4-less": {
+        "git": "https://github.com/svub/fontawesome4-less.git",
+        "tag": "v4.0.3.2",
+        "commit": "f269e4e2cfa03b292452b658fdf50afb02a9f14c"
+      },
+      "pnotify-bootstrap-3": {
+        "git": "https://github.com/emdagon/meteor-pnotify-bootstrap-3.git",
+        "tag": "v0.1.1",
+        "commit": "023f3d92803dd9ae9f244dc4f086cd57ddf013e4"
+      },
+      "gravatar": {
+        "git": "https://github.com/tmeasday/meteor-gravatar.git",
+        "tag": "v0.0.4",
+        "commit": "d1052ff4401725c23fb199c0e0a36e29b926bc22"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.3.7",
+        "commit": "5dd0d142c870647b910be80bc777b96f0dd45e5e"
+      },
+      "crypto-md5": {
+        "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
+        "tag": "v3.1.2.2",
+        "commit": "75bbb3eeace302122d3554a6212a6fe92553fa18"
+      },
+      "crypto-base": {
+        "git": "https://github.com/oortcloud/meteor-crypto-base.git",
+        "tag": "v3.1.2.1",
+        "commit": "5df8d82a0595553415bbfae2930c6ecbeece5794"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div class="user-audit">
+	<div class="form-wrap">
+		<div class="row">
+			<div class="form-header">
+				<img alt="" class="user-avata" ng-src="{{user.profile.gravata_url}}">
+				<div class="user-title">{{user.title}}</div>
+			</div>
+			<div class="form-main">
+				<ul class="list-group">
+					<li class="list-group-item"><span class="glyphicon glyphicon-fire"></span><span class="badge">1</span>Level</li>
+					<li class="list-group-item"><span class="glyphicon glyphicon-heart"></span><span class="badge">11</span>Score</li>
+					<li class="list-group-item"><span class="glyphicon glyphicon-tower"></span>Java	</li>
+				</ul>
+				<button class="btn btn-block btn-success" ng-click="$parent.currentView = 'ranking'">View your rank</button>
+			</div>
+			<div class="form-footer">
+				<div class="row">
+					<button class="btn btn-block btn-primary" ng-click="logout()">Logout</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<header class="navbar navbar-inverse" role="banner" style="border-radius: 0;">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">Harvey News</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+            <a href="">News</a>
+        </li>
+        <li class="dropdown" ng-class="{open: category_hover}" ng-mouseenter="category_hover = true" ng-mouseleave="category_hover = false">
+          <a href="">Category <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="news_dropdowns">
+                <li role="presentation">
+                  <a role="menuitem" tabindex="-1" href="#/category/java">Java</a>
+                </li>
+                <li role="presentation">
+                  <a role="menuitem" tabindex="-1" href="#/category/.net">.Net</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#/chatroom">Chat room</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+           <li  ng-if="user" class="dropdown" ng-class="{open: user_hover}" ng-mouseenter="user_hover = true" ng-mouseleave="user_hover = false">
+            <a href="#">{{user.username}}</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="news_dropdowns">
+                <li role="presentation" ng-click="logout()">
+                    <a role="menuitem" tabindex="-1" href="">Logout</a>
+                </li>
+            </ul>
+          </li>
+            <li ng-if="!user">
+              <a href="#/user/login">Login</a>
+            </li>
+        <li>
+          <button class="btn btn-post" ng-click="goTo('/create/topic/')">Post</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
