@@ -1,0 +1,42 @@
+<div class="chat-lobby row">
+	<div class="chat-messages col-md-9" id="chat_board">
+		<ul class="msg-list chat-message">
+			<li ng-repeat="msg in chatmsgs" class="message clearfix">
+				<div class="row">
+					<div class="col-md-2">
+						<div class="username">
+							<span>{{user.username}}</span>
+						</div>
+					</div>
+					<div class="col-md-10 bubble">
+						{{msg.msg}}
+						<div class="pull-right time">
+							<span am-time-ago="msg.create_on"></span>
+						</div>
+					</div>
+					
+				</div>
+			</li>
+		</ul>
+		<div class="chat-input">
+			<input type="text" ng-model="msg" class="form-control" ng-keypress="chat(msg,$event)">
+		</div>
+	</div>
+	
+	<div class="user-list col-md-3">
+		<h3>Online User</h3>
+		<ul>
+			<li ng-repeat="user in onlineUsers">
+				<div class="row">
+					<div class="user-chat-avata col-md-2">
+						<img ng-src="{{user.profile.gravata_url}}" />
+					</div>
+					<div class="user-name col-md-2">
+						<span>{{user.username}}</span>
+					</div>
+					
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

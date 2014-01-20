@@ -6,6 +6,7 @@
     "bootstrap3-less": {},
     "font-awesome-4-less": {},
     "pnotify-bootstrap-3": {},
-    "gravatar": {}
+    "gravatar": {},
+    "user-status": {}
   }
 }

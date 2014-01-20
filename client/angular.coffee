@@ -6,6 +6,7 @@ window.app = angular.module('meteorapp', ['meteor','ngRoute','angularMoment'])
       .when('/topic/:topic_id', {templateUrl: 'partials/topic/detail.html', controller:'TopicCtrl'})
       .when('/modify/topic/:topic_id', {templateUrl: 'partials/topic/create.html', controller:'TopicCtrl'})
       .when('/create/topic/', {templateUrl: 'partials/topic/create.html', controller:'TopicCtrl'})
+      .when('/chatroom', {templateUrl: 'partials/user/chat-room.html', controller:'ChatCtrl'})
       .otherwise({redirectTo: '/'});
   ]
 window.app.run ['$rootScope','$location',($rootScope, $location) ->

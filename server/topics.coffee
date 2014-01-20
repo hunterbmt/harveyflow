@@ -1,8 +1,10 @@
 Topics = new Meteor.Collection('topics')
 
-Meteor.publish 'topics',() ->
+Meteor.publish 'topics',(limit) ->
     comments = null;
-    topics = Topics.find({},{sort:{created_on:-1}})
+    if !limit
+        limit = 10;
+    topics = Topics.find({},{sort:{created_on:-1},limit : limit})
 Meteor.methods {
     create_topic: (topic) ->
         if this.userId

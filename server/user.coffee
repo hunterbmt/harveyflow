@@ -13,4 +13,9 @@ Accounts.onCreateUser (options,user) ->
 	user.profile.title = "Beginner"
 	user
 
+Meteor.publish "online-users", ->
+    Meteor.users.find { "status.online": true },
+        fields:
+        	'username':1,
+        	'profile.gravata_url':1
 
