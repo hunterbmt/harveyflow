@@ -1,9 +1,10 @@
 app.controller 'TopicCtrl',['$scope','$routeParams','$location','$meteor',($scope,$routeParams, $location,$meteor)->
-    get_current_topic = -> $scope.topic = $meteor('topics').findOne {_id:$routeParams.topic_id}
+    #get_current_topic = -> $scope.topic = $meteor('topics').findOne {_id:$routeParams.topic_id}
     
     if $routeParams.topic_id
-        get_current_topic()
-        $scope.$watchCollection 'topics', get_current_topic
+        #get_current_topic()
+        $scope.topic = $meteor('topics').findOne {_id:$routeParams.topic_id}
+        #$scope.$watchCollection 'topics', get_current_topic
     
     $scope.addTopic = (topic) ->
         Meteor.call 'create_topic',topic,(error) ->
