@@ -14,11 +14,13 @@ app.controller 'TopicCtrl',['$scope','$routeParams','$location','$meteor',($scop
                 $location.path("/")
     $scope.addComment = (comment) ->
         if comment
+            current_topic = $scope.topic
             Meteor.call 'add_comment',comment,$routeParams.topic_id,(error) ->
                 if error
                     showErrorNotify "Cannot post comment",error.reason
                 else
-                    $scope.new_comment={}
+                    console.log(current_topic is $scope.topic)
+                    $scope.new_comment = {}
     $scope.replyComment = (scope,path) ->
         if scope.replying
             Meteor.call 'add_reply',scope.newReply,path,scope.topic._id,scope.$index,(error) ->

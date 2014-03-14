@@ -12,8 +12,7 @@ app.controller 'ChatCtrl',['$scope','$meteor',($scope,$meteor)->
         $scope.$apply();
 
     Meteor.subscribe 'online-users', () ->
-        $scope.onlineUsers = Meteor.users.find({}).fetch()
-        console.log $scope.onlineUsers.length
+        $scope.onlineUsers = $meteor(Meteor.users).find({})
         $scope.$apply();
     $scope.chat = (msg,ev) ->
         if !ev||ev.which == 13
